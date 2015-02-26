@@ -89,7 +89,7 @@ app.controller('TranslationController', [
             }
         };
 
-        var defaultOptions = { page: 1, count: 20, filter: {}, sort: {'_id': 'asc'} };
+        var defaultOptions = { page: 1, count: 200, filter: {}, sort: {'_id': 'asc'} };
 
         $scope.tableParams = new ngTableParams(defaultOptions, tableData);
 
