@@ -2,9 +2,10 @@
 
 namespace Lexik\Bundle\TranslationBundle\Controller;
 
+use Lexik\Bundle\TranslationBundle\Command\ExportTranslationsCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\NullOutput;
 
 /**
  * @author Cédric Girard <c.girard@lexik.fr>
