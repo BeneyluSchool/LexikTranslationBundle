@@ -6,6 +6,8 @@ use Lexik\Bundle\TranslationBundle\Command\ExportTranslationsCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @author Cédric Girard <c.girard@lexik.fr>
