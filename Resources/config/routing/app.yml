@@ -12,6 +12,7 @@ lexik_translation_invalidate_cache:
     pattern:  /invalidate-cache
     defaults: { _controller: "LexikTranslationBundle:Translation:invalidateCache" }
     requirements: { _method: GET }
+    
 lexik_translation_refresh:
     pattern:  /refresh
     defaults: { _controller: "LexikTranslationBundle:Translation:refresh" }
