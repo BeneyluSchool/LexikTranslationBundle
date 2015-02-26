@@ -2,7 +2,6 @@
 
 namespace Lexik\Bundle\TranslationBundle\Propel;
 
-use Lexik\Bundle\TranslationBundle\Model\Translation;
 use Lexik\Bundle\TranslationBundle\Propel\om\BaseTransUnit;
 use Lexik\Bundle\TranslationBundle\Manager\TransUnitInterface;
 use Lexik\Bundle\TranslationBundle\Manager\TranslationInterface;
