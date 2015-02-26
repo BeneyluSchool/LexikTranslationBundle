@@ -73,6 +73,24 @@ class TranslationController extends Controller
             'form'   => $form->createView(),
         ));
     }
+    
+    /**
+     * Update trads.
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function refreshAction(Request $request)
+    {
+        $command = new ExportTranslationsCommand();
+        $command->setContainer($this->container);
+        $input = new ArrayInput(array());
+        $output = new NullOutput();
+        $resultCode = $command->run($input, $output);
+
+        $this->get('session')->getFlashBag()->add('success', 'Trads à jour, bravo !');
+
+        return $this->redirect($this->generateUrl('lexik_translation_grid'));
+    }
 
     /**
      * Returns managed locales.
