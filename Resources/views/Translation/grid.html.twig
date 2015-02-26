@@ -18,6 +18,10 @@
                             <span class="glyphicon glyphicon-plus"></span>
                             {{ 'translations.new_translation'|trans({}, 'LexikTranslationBundle') }}
                         </a>
+                         <a href="{{ path('lexik_translation_refresh') }}" role="button" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-refresh"></span>
+                            Mettre à jour l'application
+                        </a>
                     </div>
                 </h1>
             </div>
