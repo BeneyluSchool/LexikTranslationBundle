@@ -76,7 +76,7 @@ class TranslationController extends Controller
             'form'   => $form->createView(),
         ));
     }
-    
+
     /**
      * Update trads.
      *
@@ -89,13 +89,13 @@ class TranslationController extends Controller
         $input = new ArrayInput(array());
         $output = new NullOutput();
         $resultCode = $command->run($input, $output);
-		
+
 		$this->get('translator')->removeLocalesCacheFiles($this->getManagedLocales());
 
         $message = $this->get('translator')->trans('translations.cache_removed', array(), 'LexikTranslationBundle');
-		
+
 		apc_clear_cache();
-		
+
         $this->get('session')->getFlashBag()->add('success', 'Trads à jour, bravo !');
 
         return $this->redirect($this->generateUrl('lexik_translation_grid'));

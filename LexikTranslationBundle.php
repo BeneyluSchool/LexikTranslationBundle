@@ -19,6 +19,8 @@ class LexikTranslationBundle extends Bundle
     {
         parent::build($container);
 
+
+
         $container->addCompilerPass(new TranslatorPass());
         $container->addCompilerPass(new RegisterMappingPass());
     }
