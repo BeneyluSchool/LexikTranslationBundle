@@ -28,18 +28,7 @@ class LexikTranslationExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $configs = array(array('fallback_locale' => 'fr',
-                                'managed_locales' => ['fr', 'eng'],
-                                'base_layout' => 'lexik_layout.html.twig',
-                                'use_yml_tree' => false,
-                                'grid_input_type' => 'text',
-                                'storage' => array(
-                                    'type' => 'propel',
-                                    'object_manager' => 'app'),
-                                'resources_registration' => array(
-                                    'type' => 'all',
-                                    'managed_locales_only' => true)));
-
+        
         $processor = new Processor();
         $configuration = new Configuration();
         $config = $processor->processConfiguration($configuration, $configs);
