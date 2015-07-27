@@ -3,6 +3,11 @@ lexik_translation_grid:
     defaults:     { _controller: "LexikTranslationBundle:Translation:grid" }
     requirements: { _method: GET }
 
+lexik_translation_domains:
+    pattern:      /domains
+    defaults:     { _controller: "LexikTranslationBundle:Translation:domains" }
+    requirements: { _method: GET }
+
 lexik_translation_new:
     pattern:  /new
     defaults: { _controller: "LexikTranslationBundle:Translation:new" }
@@ -12,8 +17,38 @@ lexik_translation_invalidate_cache:
     pattern:  /invalidate-cache
     defaults: { _controller: "LexikTranslationBundle:Translation:invalidateCache" }
     requirements: { _method: GET }
-    
+
 lexik_translation_refresh:
     pattern:  /refresh
     defaults: { _controller: "LexikTranslationBundle:Translation:refresh" }
+    requirements: { _method: GET }
+
+lexik_translation_validate_domain:
+    pattern:      /validate-domain/{domain}
+    defaults:     { _controller: "LexikTranslationBundle:Translation:validateDomain" }
+    requirements: { _method: GET }
+
+lexik_translation_invalidate_domain:
+    pattern:      /invalidate-domain/{domain}
+    defaults:     { _controller: "LexikTranslationBundle:Translation:invalidateDomain" }
+    requirements: { _method: GET }
+
+lexik_translation_validate:
+    pattern:      /validate/{id}
+    defaults:     { _controller: "LexikTranslationBundle:Translation:validate" }
+    requirements: { _method: GET }
+
+lexik_translation_invalidate:
+    pattern:      /invalidate/{id}
+    defaults:     { _controller: "LexikTranslationBundle:Translation:invalidate" }
+    requirements: { _method: GET }
+
+lexik_translation_waiting_domain:
+    pattern:      /waiting-domain/{domain}
+    defaults:     { _controller: "LexikTranslationBundle:Translation:waitingDomain" }
+    requirements: { _method: GET }
+
+lexik_translation_waiting:
+    pattern:      /waiting/{id}
+    defaults:     { _controller: "LexikTranslationBundle:Translation:waiting" }
     requirements: { _method: GET }

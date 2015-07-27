@@ -15,3 +15,5 @@ translations:
     succesfully_added:   "Traduction ajouté avec succès."
     update_failed:       "Erreur lors de la mise à jour des traductions pour clé #%id%."
     back_to_list:        "Retour"
+    domain_valid:         "Le domaine a bien été validé."
+    domain_invalid:       "Le domaine a bien été révoqué."

@@ -115,6 +115,7 @@ class TransUnitRepository
             ->find($this->getConnection())
         ;
 
+
         $transUnits = array();
 
         if (count($ids) > 0) {
@@ -128,6 +129,8 @@ class TransUnitRepository
                 ->setFormatter('PropelArrayFormatter')
                 ->find($this->getConnection())
             ;
+
+
 
             $transUnits = $this->filterTransUnitData($unitsData);
         }
@@ -211,6 +214,13 @@ class TransUnitRepository
             if (!empty($filters['key'])) {
                 $query->filterByKey(sprintf('%%%s%%', $filters['key']), \Criteria::LIKE);
             }
+
+            if (!empty($filters['_status'])) {
+                $query->filterBystatus(sprintf('%%%s%%', $filters['_status']), \Criteria::LIKE);
+            }
+            if (!empty($filters['status'])) {
+                $query->filterBystatus(sprintf('%%%s%%', $filters['status']), \Criteria::LIKE);
+            }
         }
     }
 
@@ -268,6 +278,7 @@ class TransUnitRepository
                 'id' => $unit['Id'],
                 'key' => $unit['Key'],
                 'domain' => $unit['Domain'],
+                'status' => $unit['status'],
                 'translations' => array(),
             );
 

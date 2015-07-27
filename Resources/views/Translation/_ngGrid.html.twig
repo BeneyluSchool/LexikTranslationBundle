@@ -11,6 +11,12 @@
                 <span class="glyphicon glyphicon-refresh"></span>
                 {{ invalidateCacheBtnLabel }}
             </a>
+            <a href="domains" role="button" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-refresh"></span>
+                Gérer les domaines
+            </a>
+
+
             <div ng-show="sharedMsg.content != ''" class="pull-right label label-{{ sharedMsg.css }}">
                 <span>
                     <i class="glyphicon glyphicon-{{ sharedMsg.icon }}"></i>
@@ -32,7 +38,7 @@
             </ul>
             <ul class="list-unstyled list-inline locales-list">
                 <li ng-repeat="column in columns" class="locale">
-                    <label for="toggle-{{ column.index }}">
+                    <label ng-if="column.title != 'ID'" for="toggle-{{ column.index }}">
                         <input type="checkbox" id="toggle-{{ column.index }}" ng-model="column.visible" ng-click="toggleSimilar(column)" />
                         {{ column.title }}
                     </label>
@@ -64,7 +70,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr editable-row ng-repeat="translation in $data" translation="translation" columns="columns" edit-type="editType"></tr>
+                    <tr editable-row ng-repeat="translation in $data" translation="translation" columns="columns" edit-type="editType" status="currentStatus"></tr>
                 </tbody>
             </table>
         </div>
@@ -107,6 +113,24 @@
                        class="form-control input-sm" />
             </div>
         </td>
+         <td ng-show="status != 3">
+          <a  ng-click="validate($event)" role="button" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-refresh"></span>
+                Valider
+          </a>
+          </td>
+          <td ng-show="status != 2" >
+           <a ng-click="waiting($event)" role="button" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-refresh"></span>
+                En cours
+          </a>
+         </td>
+         <td ng-show="status != 1">
+          <a ng-click="invalidate($event)" role="button" class="btn btn-danger btn-sm">
+                <span class="glyphicon glyphicon-refresh"></span>
+                Révoquer
+          </a>
+         </td>
         <td ng-if="editType == 'textarea'" class="text-center">
             <button ng-show="edit" ng-click="save($event)" type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-save"></span></button>
         </td>

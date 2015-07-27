@@ -67,6 +67,7 @@ class DataGridRequestHandler
             $parameters
         );
 
+
         $count = $this->storage->countTransUnits($this->managedLocales, $request->query->all());
 
         return array($transUnits, $count);

@@ -43,7 +43,12 @@
             url: {
                 list: '{{ path('lexik_translation_list') }}',
                 update: '{{ path('lexik_translation_update', {'id': '-id-'}) }}',
-                invalidateCache: '{{ path('lexik_translation_invalidate_cache') }}'
+                invalidateCache: '{{ path('lexik_translation_invalidate_cache') }}',
+                validateDomain: '{{ path('lexik_translation_validate_domain', {'domain': '-domain-'}) }}',
+                invalidateDomain: '{{ path('lexik_translation_invalidate_domain', {'domain': '-domain-'}) }}',
+                validate: '{{ path('lexik_translation_validate', {'id': '-id-'}) }}',
+                invalidate: '{{ path('lexik_translation_invalidate', {'id': '-id-'}) }}',
+                waiting: '{{ path('lexik_translation_waiting', {'id': '-id-'}) }}'
             },
             label: {
                 hideCol: '{{ 'translations.show_hide_columns'|trans({}, 'LexikTranslationBundle') }}',

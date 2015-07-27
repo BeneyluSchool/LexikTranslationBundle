@@ -1,0 +1,71 @@
+{% extends layout %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('bundles/lexiktranslation/css/translation.css') }}">
+{% endblock %}
+
+{% block title %}Gestion des domaines{% endblock %}
+{% block content %}
+  <div class="container">
+    {% block toolbar %}
+      <div class="page-header">
+        <h1>
+          {{ 'translations.page_title'|trans({}, 'LexikTranslationBundle') }}
+        </h1>
+      </div>
+    {% endblock toolbar %}
+
+    {% block data_grid %}
+
+    <div id="translation-grid">
+      <div class="row margin-row">
+        <div class="col-md-12">
+          <a id="validate" role="button" class="btn btn-success btn-sm">
+            <span class="glyphicon glyphicon-refresh"></span>
+            Valider tout le domaine
+          </a>
+
+          <a id="invalidate" role="button" class="btn btn-danger btn-sm">
+            <span class="glyphicon glyphicon-refresh"></span>
+            Révoquer tout le domaine
+          </a>
+
+          <a id="waiting" role="button" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-refresh"></span>
+            Mettre "En cours" tout le domaine
+          </a>
+
+          <select id="select_domain">
+            <option value="">Sélectionnez un domaine</option>
+            {% set l = domains|length-1 %}
+            {% for i in 0..l %}
+              <option value="{{ domains[i] }}">{{ domains[i] }}</option>
+            {% endfor %}
+          </select>
+
+        </div>
+      </div>
+
+    {% endblock data_grid %}
+
+  </div>
+{% endblock %}
+
+{% block javascript_footer %}
+  {{ parent() }}
+      <script type="text/javascript">
+          $('#validate').click(function(){
+            var domain = $('#select_domain').val();
+            $(this).attr('href', 'validate-domain/'+domain);
+            });
+          $('#invalidate').click(function(){
+            var domain = $('#select_domain').val();
+            $(this).attr('href', 'invalidate-domain/'+domain);
+          });
+          $('#waiting').click(function(){
+            var domain = $('#select_domain').val();
+            $(this).attr('href', 'waiting-domain/'+domain);
+          });
+      </script>
+{% endblock %}
